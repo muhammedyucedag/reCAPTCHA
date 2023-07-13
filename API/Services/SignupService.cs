@@ -1,6 +1,7 @@
 using API.Interfaces;
 using API.Request;
 using API.Response;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace API.Services;
@@ -9,9 +10,9 @@ public class SignupService : ISignupService
 {
     private readonly AppSettings _appSettings;
 
-    public SignupService(AppSettings appSettings)
+    public SignupService(IOptions<AppSettings> appSettings)
     {
-        _appSettings = appSettings;
+        _appSettings = appSettings.Value;
     }
 
     public async Task<SignupResponse> Signup(SignupRequest signupRequest)
