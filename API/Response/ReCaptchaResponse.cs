@@ -4,6 +4,8 @@ namespace API.Response;
 
 public class ReCaptchaResponse
 {
+    // Recaptcha için geri dönüş alanı
+    
     [JsonProperty("success")]
     public bool Success { get; set; }
         
@@ -14,10 +16,10 @@ public class ReCaptchaResponse
     public string Action { get; set; }
         
     [JsonProperty("challenge_ts")]
-    public DateTime ChallengeTs { get; set; } // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+    public DateTime ChallengeTs { get; set; } 
         
     [JsonProperty("hostname")]
-    public string HostName { get; set; }    // the hostname of the site where the reCAPTCHA was solved
+    public string HostName { get; set; }
        
     [JsonProperty("error-codes")]
     public string[] ErrorCodes { get; set; }
