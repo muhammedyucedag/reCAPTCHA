@@ -23,14 +23,14 @@
     <br />
     <label id="lblMessage"></label>
 </form>
-<script src="https://www.google.com/recaptcha/api.js?render=6Le-dxQnAAAAAGklOR2hXPcvS-y4CWErh6ZdqHWg"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcySFEnAAAAAHIFz81-PwwiADxIaAhc2p2W1NrR"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $(document).on('click', '#btnSignup', function (e) {
             e.preventDefault();
             grecaptcha.ready(function () {
-                grecaptcha.execute('6Le-dxQnAAAAAGklOR2hXPcvS-y4CWErh6ZdqHWg', { action: 'signup' }).then(function (token) {
+                grecaptcha.execute('6LcySFEnAAAAAHIFz81-PwwiADxIaAhc2p2W1NrR', { action: 'signup' }).then(function (token) {
                     $('#hdnGoogleRecaptcha').val(token);
                     $('#lblValue').html(token);
 
