@@ -4,8 +4,6 @@ namespace API.Response;
 
 public class ReCaptchaResponse
 {
-    // Recaptcha için geri dönüş alanı
-    
     [JsonProperty("success")]
     public bool Success { get; set; }
         

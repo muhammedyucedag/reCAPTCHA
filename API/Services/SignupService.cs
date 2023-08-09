@@ -8,8 +8,6 @@ namespace API.Services;
 
 public class SignupService : ISignupService
 {
-    // Giriş servisi 
-    
     private readonly AppSettings _appSettings;
 
     public SignupService(IOptions<AppSettings> appSettings)
@@ -30,8 +28,7 @@ public class SignupService : ISignupService
 
             HttpResponseMessage recaptchaResponse = null;
             string stringContent = "";
-
-            // Call recaptcha api and validate the token
+            
             using (var http = new HttpClient())
             {
                 recaptchaResponse = await http.PostAsync("https://www.google.com/recaptcha/api/siteverify", postContent);
@@ -59,20 +56,15 @@ public class SignupService : ISignupService
 
             if (!googleReCaptchaResponse.Action.Equals("signup", StringComparison.OrdinalIgnoreCase))
             {
-                // This is important just to verify that the exact action has been performed from the UI
                 return new SignupResponse() { Success = false, Error = "Invalid action", ErrorCode = "S06" };
             }
-
-            // Captcha was success , let's check the score, in our case, for example, anything less than 0.5 is considered as a bot user which we would not allow ...
-            // the passing score might be higher or lower according to the sensitivity of your action
+        
 
             if (googleReCaptchaResponse.Score < 0.5)
             {
                 return new SignupResponse() { Success = false, Error = "This is a potential bot. Signup request rejected", ErrorCode = "S07" };
             }
-
-            //TODO: Continue with doing the actual signup process, since now we know the request was done by potentially really human
-
+            
             return new SignupResponse() { Success = true };
         }
     }
