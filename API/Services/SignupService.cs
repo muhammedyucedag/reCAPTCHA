@@ -8,6 +8,8 @@ namespace API.Services;
 
 public class SignupService : ISignupService
 {
+    //Kayıt Alanı Servisi
+    
     private readonly AppSettings _appSettings;
 
     public SignupService(IOptions<AppSettings> appSettings)

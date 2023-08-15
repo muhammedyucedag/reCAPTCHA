@@ -9,6 +9,8 @@ namespace API.Controllers
     [ApiController]
     public class SignupController : ControllerBase
     {
+        //Kayıt alan servisi
+        
         private readonly ISignupService signupService;
 
         public SignupController(ISignupService signupService)
@@ -21,7 +23,7 @@ namespace API.Controllers
         {
             if (signup == null)
             {
-                return BadRequest(new SignupResponse() { Success = false, Error = "Invalid signup request", ErrorCode = "S01" });
+                return BadRequest(new SignupResponse() { Success = false, Error = "Geçersiz kayıt isteği", ErrorCode = "S01" });
             }
 
             if (!ModelState.IsValid)
