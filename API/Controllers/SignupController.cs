@@ -9,7 +9,7 @@ namespace API.Controllers
     [ApiController]
     public class SignupController : ControllerBase
     {
-        //Kayıt alan servisi
+        //Kayıt alan en pointi
         
         private readonly ISignupService signupService;
 
